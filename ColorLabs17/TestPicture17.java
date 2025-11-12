@@ -77,13 +77,17 @@ public class TestPicture17
         yuck.setColor(Color.orange);
     }
     //ferris1.explore();
-    int Ored, Ogreen, Oblue;
+    int Ored = 0, Ogreen = 0, Oblue = 0;
     for (Pixel p : Mpixels){
         Ored = p.getRed();
         Ogreen = p.getGreen();
-        
+        Oblue = p.getBlue();
+        p.setRed(Ored);
+        p.setGreen(Ogreen);
+        p.setBlue(Oblue);
         
     }
+    System.out.println(Ored);
     /*
 
    // loop to access indexes of array or collection
