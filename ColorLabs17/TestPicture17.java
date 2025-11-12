@@ -32,6 +32,10 @@ public class TestPicture17
      //Picture apic = new Picture("images\\beach.jpg");
      Picture ferris1 = new Picture("images/2000 ferris wheel2.jpg");
      Picture moto = new Picture("images/redMotorcycle.jpg");
+     Picture moto1 = new Picture("images/redMotorcycle.jpg");
+     Picture moto2 = new Picture("images/redMotorcycle.jpg");
+     Picture moto3 = new Picture("images/redMotorcycle.jpg");
+     Picture moto4 = new Picture("images/redMotorcycle.jpg");
      //Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
 
      //displays the picture
@@ -43,9 +47,20 @@ public class TestPicture17
      Pixel[] pixels;
      //gets pixels from picture and assigns to pixels array
      pixels = ferris1.getPixels();
-     
      Pixel[] Mpixels;
      Mpixels = moto.getPixels();
+     
+     Pixel[] Mpixels2;
+     Mpixels2 = moto.getPixels();
+     
+     Pixel[] Mpixels3;
+     Mpixels3 = moto.getPixels();
+     
+     Pixel[] Mpixels4;
+     Mpixels4 = moto.getPixels();
+     
+     Pixel[] Mpixels5;
+     Mpixels5 = moto.getPixels();
      
      //how many pixels or how large array
     System.out.println("This is a large array"+pixels.length  );
@@ -163,12 +178,30 @@ final double  FACTOR = .5;
         
     }
     moto.explore();
-    for(Pixel spot1: Mpixels){
+    for(Pixel spot1: Mpixels2){
      red = spot1.getRed();
      red = (int)(red* 1.25);
      spot1.setRed(red);
      
      }
-     moto.explore();
+    moto.explore();
+    for(Pixel p: Mpixels3){
+         red = p.getRed();
+         green = p.getGreen();
+         blue = p.getBlue();
+         p.setRed(255-red);
+         p.setGreen(255-green);
+         p.setBlue(255-blue);
+    }
+    moto.explore();
+    for(Pixel p: Mpixels4){
+        red = p.getRed();
+        green = p.getGreen();
+        blue = p.getBlue();
+        p.setRed(red+20);
+        p.setGreen(green+20);
+        p.setBlue(blue+20);
+    }
+    moto.explore();
   }//main
 }//class
