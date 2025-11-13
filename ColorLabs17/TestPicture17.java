@@ -32,10 +32,11 @@ public class TestPicture17
      //Picture apic = new Picture("images\\beach.jpg");
      Picture ferris1 = new Picture("images/2000 ferris wheel2.jpg");
      Picture moto = new Picture("images/redMotorcycle.jpg");
-     Picture moto1 = new Picture("images/redMotorcycle.jpg");
+     Picture motoOG = new Picture("images/redMotorcycle.jpg");
      Picture moto2 = new Picture("images/redMotorcycle.jpg");
      Picture moto3 = new Picture("images/redMotorcycle.jpg");
      Picture moto4 = new Picture("images/redMotorcycle.jpg");
+     Picture moto5 = new Picture("images/redMotorcycle.jpg");
      //Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
 
      //displays the picture
@@ -51,16 +52,16 @@ public class TestPicture17
      Mpixels = moto.getPixels();
      
      Pixel[] Mpixels2;
-     Mpixels2 = moto.getPixels();
+     Mpixels2 = moto2.getPixels();
      
      Pixel[] Mpixels3;
-     Mpixels3 = moto.getPixels();
+     Mpixels3 = moto3.getPixels();
      
      Pixel[] Mpixels4;
-     Mpixels4 = moto.getPixels();
+     Mpixels4 = moto4.getPixels();
      
      Pixel[] Mpixels5;
-     Mpixels5 = moto.getPixels();
+     Mpixels5 = moto5.getPixels();
      
      //how many pixels or how large array
     System.out.println("This is a large array"+pixels.length  );
@@ -164,7 +165,7 @@ final double  FACTOR = .5;
   /**/ 
     //write/save a picture as a file
     ferris1.write("images/ferris11.jpg");
-
+    motoOG.explore();
     /**/
     int avg;
     for(Pixel p : Mpixels){
@@ -184,7 +185,7 @@ final double  FACTOR = .5;
      spot1.setRed(red);
      
      }
-    moto.explore();
+    moto2.explore();
     for(Pixel p: Mpixels3){
          red = p.getRed();
          green = p.getGreen();
@@ -193,15 +194,27 @@ final double  FACTOR = .5;
          p.setGreen(255-green);
          p.setBlue(255-blue);
     }
-    moto.explore();
+    moto3.explore();
     for(Pixel p: Mpixels4){
         red = p.getRed();
         green = p.getGreen();
         blue = p.getBlue();
-        p.setRed(red+20);
-        p.setGreen(green+20);
-        p.setBlue(blue+20);
+        p.setRed(red+35);
+        p.setGreen(green+35);
+        p.setBlue(blue+35);
     }
-    moto.explore();
+    moto4.explore();
+    for(Pixel p: Mpixels5){
+        red = p.getRed();
+        green = p.getGreen();
+        blue = p.getBlue();
+        if (red >= 105 && red <= 160 && green >= 140 && green <= 170 && blue >= 40 && blue <= 80){
+            blue = blue*7;
+        }
+        p.setRed(red);
+        p.setBlue(blue);
+        p.setGreen(green);
+    }
+    moto5.explore();
   }//main
 }//class
