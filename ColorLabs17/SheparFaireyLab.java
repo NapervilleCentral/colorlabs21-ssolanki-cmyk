@@ -85,7 +85,7 @@ public class SheparFaireyLab
             }
         }
         //me1.explore();
-
+        me1.write("images/Me1.jpg");
          /**
           * method 2 change
           * 
@@ -128,7 +128,7 @@ public class SheparFaireyLab
             }
         }
         //me2.explore();
-
+        me2.write("images/Me2.jpg");
          
          /**
           * custom color palette
