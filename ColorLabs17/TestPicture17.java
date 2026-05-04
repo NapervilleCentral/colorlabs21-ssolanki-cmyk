@@ -10,7 +10,9 @@ import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
 public class TestPicture17
 {
-
+    static Picture vette = new Picture("images/Corvette.png");
+    
+    
     /**
      * main method, to test the picture
      *
@@ -37,6 +39,7 @@ public class TestPicture17
      Picture moto3 = new Picture("images/redMotorcycle.jpg");
      Picture moto4 = new Picture("images/redMotorcycle.jpg");
      Picture moto5 = new Picture("images/redMotorcycle.jpg");
+     Picture vette = new Picture("images/Corvette.png");
      //Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
 
      //displays the picture
@@ -46,6 +49,7 @@ public class TestPicture17
      
      //makes an array of pixels
      Pixel[] pixels;
+     
      //gets pixels from picture and assigns to pixels array
      pixels = ferris1.getPixels();
      Pixel[] Mpixels;
@@ -63,10 +67,12 @@ public class TestPicture17
      Pixel[] Mpixels5;
      Mpixels5 = moto5.getPixels();
      
+     
      //how many pixels or how large array
     System.out.println("This is a large array"+pixels.length  );
-
+    
     /**/
+    /*
         //access each index
     System.out.println(pixels[17]);
     //access each pixel
@@ -86,7 +92,7 @@ public class TestPicture17
     spot.setColor(newColor);
     spot2.setColor(newColor);
     //ferris1.explore();
-
+    */
     for (int i = 0; i < 50000; i++)
     {
         Pixel yuck = ferris1.getPixel((int)(Math.random()*1000), (int)(Math.random()*668));
@@ -164,9 +170,11 @@ final double  FACTOR = .5;
 
   /**/ 
     //write/save a picture as a file
+    /*
     ferris1.write("images/ferris11.jpg");
     motoOG.explore();
     /**/
+    /*
     int avg;
     for(Pixel p : Mpixels){
         red = p.getRed();
@@ -216,5 +224,40 @@ final double  FACTOR = .5;
         p.setGreen(green);
     }
     moto5.explore();
+    */
+       sideways();
+     vette.explore();
   }//main
+  // method for flipping over horizontal
+  public static void sideways()
+  {
+      int width = vette.getWidth();
+      int mirror = width/2;
+      
+      Pixel leftPixel = null;
+      Pixel rightPixel = null;
+      
+      for (int y = 0; y < vette.getHeight(); y++)
+          for ( int x = 0; x < mirror; x++)
+          {
+              leftPixel = vette.getPixel(x,y);
+              rightPixel = vette.getPixel(width -1 -x, y);
+              rightPixel.setColor(leftPixel.getColor());
+          }
+              
+  }
+  public static void copyToCanvas(Picture source, Picture target)
+  {
+      Pixel sourcePix = null;
+      Pixel targetPix = null;
+      
+      for (int sourceX = 0, targetX = 0; sourceX< source.getWidth(); sourceX++, targetX++)
+      {
+          for (int sourceY = 0, targetY = 0; sourceY< source.getWidth(); sourceY++, targetY++)
+          {
+              sourcePix = source.getPixel(sourceX, sourceY);
+              
+          }
+      }
+  }
 }//class
