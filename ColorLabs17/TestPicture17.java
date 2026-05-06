@@ -10,8 +10,8 @@ import java.util.*;
 import java.util.List; // resolves problem with java.awt.List and java.util.List
 public class TestPicture17
 {
-    static Picture vette = new Picture("images/Corvette.png");
     
+    static Picture vette = new Picture("images/Corvette.png");
     
     /**
      * main method, to test the picture
@@ -19,6 +19,7 @@ public class TestPicture17
      */
   public static void main(String[] args)
   {
+      
       //opens picture using a dialog box
       /*
      String fileName = FileChooser.pickAFile();
@@ -39,7 +40,7 @@ public class TestPicture17
      Picture moto3 = new Picture("images/redMotorcycle.jpg");
      Picture moto4 = new Picture("images/redMotorcycle.jpg");
      Picture moto5 = new Picture("images/redMotorcycle.jpg");
-     Picture vette = new Picture("images/Corvette.png");
+     
      //Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
 
      //displays the picture
@@ -225,7 +226,8 @@ final double  FACTOR = .5;
     }
     moto5.explore();
     */
-       sideways();
+       //sideways();
+       topways();
      vette.explore();
   }//main
   // method for flipping over horizontal
@@ -246,17 +248,35 @@ final double  FACTOR = .5;
           }
               
   }
-  public static void copyToCanvas(Picture source, Picture target)
+  public static void topways()
+  {
+      int height = vette.getHeight();
+      int mirror = height/2;
+      
+      Pixel topPixel = null;
+      Pixel bottomPixel = null;
+      
+      for (int x = 0; x < vette.getWidth(); x++)
+          for ( int y = 0; y < mirror; y++)
+          {
+              topPixel = vette.getPixel(x,y);
+              bottomPixel = vette.getPixel(x, height -1 - y);
+              bottomPixel.setColor(topPixel.getColor());
+          }
+              
+  }
+  public static void copyToCanvasBetter(Picture source, Picture target, int x, int y)
   {
       Pixel sourcePix = null;
       Pixel targetPix = null;
       
-      for (int sourceX = 0, targetX = 0; sourceX< source.getWidth(); sourceX++, targetX++)
+      for (int sourceX = 0, targetX = x; sourceX< source.getWidth(); sourceX++, targetX++)
       {
-          for (int sourceY = 0, targetY = 0; sourceY< source.getWidth(); sourceY++, targetY++)
+          for (int sourceY = 0, targetY = y; sourceY< source.getWidth(); sourceY++, targetY++)
           {
               sourcePix = source.getPixel(sourceX, sourceY);
-              
+              targetPix = target.getPixel(targetX, targetY);
+              targetPix.setColor(sourcePix.getColor());
           }
       }
   }
