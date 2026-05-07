@@ -12,6 +12,11 @@ public class TestPicture17
 {
     
     static Picture vette = new Picture("images/Corvette.png");
+    static Picture vette2 = new Picture("images/Corvette.png");
+    static Picture vette3 = new Picture("images/Corvette.png");
+    static Picture vette4 = new Picture("images/Corvette.png");
+    static Picture vette5 = new Picture("images/Corvette.png");
+    static Picture Canvas = new Picture("images/Canvas.jpg");
     
     /**
      * main method, to test the picture
@@ -226,9 +231,20 @@ final double  FACTOR = .5;
     }
     moto5.explore();
     */
-       //sideways();
+   System.out.println("Canvas width: " + Canvas.getWidth());
+System.out.println("Canvas height: " + Canvas.getHeight());
+System.out.println("Vette width: " + vette.getWidth());
+System.out.println("Vette height: " + vette.getHeight());
+
+       copyToCanvasBetter(vette, Canvas, 0, 0);
+       sideways();
+       copyToCanvasBetter(vette, Canvas, 3840, 0);
        topways();
-     vette.explore();
+       copyToCanvasBetter(vette2, Canvas, 7680, 0);
+       nullify();
+       copyToCanvasBetter(vette3, Canvas, 0, 2160);
+     Canvas.explore();
+     
   }//main
   // method for flipping over horizontal
   public static void sideways()
@@ -250,18 +266,35 @@ final double  FACTOR = .5;
   }
   public static void topways()
   {
-      int height = vette.getHeight();
+      int height = vette2.getHeight();
       int mirror = height/2;
       
       Pixel topPixel = null;
       Pixel bottomPixel = null;
       
-      for (int x = 0; x < vette.getWidth(); x++)
+      for (int x = 0; x < vette2.getWidth(); x++)
           for ( int y = 0; y < mirror; y++)
           {
-              topPixel = vette.getPixel(x,y);
-              bottomPixel = vette.getPixel(x, height -1 - y);
+              topPixel = vette2.getPixel(x,y);
+              bottomPixel = vette2.getPixel(x, height -1 - y);
               bottomPixel.setColor(topPixel.getColor());
+          }
+              
+  }
+  public static void nullify()
+  {
+      Pixel Pixel = null;
+      for (int x = 0; x < vette3.getWidth(); x++)
+          for ( int y = 0; y < vette3.getHeight(); y++)
+          {
+              Pixel = vette3.getPixel(x,y);
+              int redp = Pixel.getRed();
+             int bluep = Pixel.getBlue();
+             int greenp = Pixel.getGreen();
+             int avg = (redp + bluep + greenp)/3;
+             Pixel.setRed(avg);
+             Pixel.setBlue(avg);
+             Pixel.setGreen(avg);
           }
               
   }
@@ -272,7 +305,7 @@ final double  FACTOR = .5;
       
       for (int sourceX = 0, targetX = x; sourceX< source.getWidth(); sourceX++, targetX++)
       {
-          for (int sourceY = 0, targetY = y; sourceY< source.getWidth(); sourceY++, targetY++)
+          for (int sourceY = 0, targetY = y; sourceY< source.getHeight(); sourceY++, targetY++)
           {
               sourcePix = source.getPixel(sourceX, sourceY);
               targetPix = target.getPixel(targetX, targetY);
