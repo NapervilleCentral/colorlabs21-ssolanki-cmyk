@@ -291,10 +291,9 @@ System.out.println("Vette height: " + vette.getHeight());
               int redp = Pixel.getRed();
              int bluep = Pixel.getBlue();
              int greenp = Pixel.getGreen();
-             int avg = (redp + bluep + greenp)/3;
-             Pixel.setRed(avg);
-             Pixel.setBlue(avg);
-             Pixel.setGreen(avg);
+             Pixel.setRed(255-redp);
+             Pixel.setBlue(255-bluep);
+             Pixel.setGreen(255-greenp);
           }
               
   }
