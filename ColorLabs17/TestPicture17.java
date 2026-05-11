@@ -16,6 +16,7 @@ public class TestPicture17
     static Picture vette3 = new Picture("images/Corvette.png");
     static Picture vette4 = new Picture("images/Corvette.png");
     static Picture vette5 = new Picture("images/Corvette.png");
+    static Picture vette6 = new Picture("images/Corvette.png");
     static Picture Canvas = new Picture("images/Canvas.jpg");
     
     /**
@@ -238,17 +239,20 @@ System.out.println("Vette height: " + vette.getHeight());
 
        copyToCanvasBetter(vette, Canvas, 0, 0);
        sideways();
-       copyToCanvasBetter(vette, Canvas, 3840, 0);
+       copyToCanvasBetter(vette, Canvas, 1300, 0);
        topways();
-       copyToCanvasBetter(vette2, Canvas, 7680, 0);
+       copyToCanvasBetter(vette2, Canvas, 2600, 0);
        nullify();
-       copyToCanvasBetter(vette3, Canvas, 0, 2160);
-       recursion();
+       copyToCanvasBetter(vette3, Canvas, 0, 900);
+       recursion(vette4);
+       copyToCanvasBetter(vette4, Canvas, 1300, 900);
+       flip();
+       copyToCanvasBetter(vette6, Canvas, 2600, 900);
        
      Canvas.explore();
      
   }//main
-  // method for flipping over horizontal
+      // method for flipping over horizontal
   public static void sideways()
   {
       int width = vette.getWidth();
@@ -299,19 +303,49 @@ System.out.println("Vette height: " + vette.getHeight());
           }
               
   }
-  public static void recursion()
+  public static void recursion(Picture pic)
+    {
+        // Base case is handled by the if-check before recursive call
+        Pixel pixel1 = null, pixel2 = null;
+    
+        for (int x = 0; x < pic.getWidth(); x += 2)
+        {
+            for (int y = 0; y < pic.getHeight(); y += 2)
+            {
+                pixel1 = pic.getPixel(x, y);
+                pixel2 = vette4.getPixel(x / 2, y / 2); // write INTO vette4
+                pixel2.setColor(pixel1.getColor());
+            }
+        }
+    
+        if (pic.getWidth() / 2 > 50)
+        {
+            // Crop the top-left region we just drew into vette4
+            Picture crop = new Picture(pic.getWidth() / 2, pic.getHeight() / 2);
+            for (int x = 0; x < crop.getWidth(); x++)
+            {
+                for (int y = 0; y < crop.getHeight(); y++)
+                {
+                    crop.getPixel(x, y).setColor(vette4.getPixel(x, y).getColor());
+                }
+            }
+            recursion(crop);
+        }
+    }
+  public static void flip()
   {
       Pixel Pixel1 = null, Pixel2 = null;
-      for (int x = 0; x < vette4.getWidth(); x+=2)
-          for ( int y = 0; y < vette4.getHeight(); y+=2)
+ 
+      for (int x = 0; x < vette3.getWidth(); x++)
+          for ( int y = 0; y < vette3.getHeight(); y++)
           {
-              Pixel1 = vette4.getPixel(x,y);
-              Pixel2 = vette4.getPixel(x/2,y/2);
+              Pixel1 = vette5.getPixel(x,y);
+              Pixel2 = vette6.getPixel(vette6.getWidth()-x-1, vette6.getHeight()-y-1);
               Pixel2.setColor(Pixel1.getColor());
-              
           }
-              
+            
   }
+              
   
   public static void copyToCanvasBetter(Picture source, Picture target, int x, int y)
   {
