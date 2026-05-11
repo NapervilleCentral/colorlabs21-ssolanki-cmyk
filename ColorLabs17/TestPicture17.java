@@ -243,6 +243,8 @@ System.out.println("Vette height: " + vette.getHeight());
        copyToCanvasBetter(vette2, Canvas, 7680, 0);
        nullify();
        copyToCanvasBetter(vette3, Canvas, 0, 2160);
+       recursion();
+       
      Canvas.explore();
      
   }//main
@@ -297,6 +299,20 @@ System.out.println("Vette height: " + vette.getHeight());
           }
               
   }
+  public static void recursion()
+  {
+      Pixel Pixel1 = null, Pixel2 = null;
+      for (int x = 0; x < vette4.getWidth(); x+=2)
+          for ( int y = 0; y < vette4.getHeight(); y+=2)
+          {
+              Pixel1 = vette4.getPixel(x,y);
+              Pixel2 = vette4.getPixel(x/2,y/2);
+              Pixel2.setColor(Pixel1.getColor());
+              
+          }
+              
+  }
+  
   public static void copyToCanvasBetter(Picture source, Picture target, int x, int y)
   {
       Pixel sourcePix = null;
