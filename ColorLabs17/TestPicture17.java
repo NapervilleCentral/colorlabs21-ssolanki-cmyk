@@ -250,6 +250,7 @@ System.out.println("Vette height: " + vette.getHeight());
        copyToCanvasBetter(vette6, Canvas, 2600, 900);
        
      Canvas.explore();
+     Canvas.write("images/FinalProject.jpg");
      
   }//main
       // method for flipping over horizontal
