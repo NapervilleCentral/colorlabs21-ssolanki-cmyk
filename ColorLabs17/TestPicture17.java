@@ -17,6 +17,7 @@ public class TestPicture17
     static Picture vette4 = new Picture("images/Corvette.png");
     static Picture vette5 = new Picture("images/Corvette.png");
     static Picture vette6 = new Picture("images/Corvette.png");
+    static Picture C7 = new Picture("images/C7.jpg");
     static Picture Canvas = new Picture("images/Canvas.jpg");
     
     /**
@@ -26,223 +27,14 @@ public class TestPicture17
   public static void main(String[] args)
   {
       
-      //opens picture using a dialog box
-      /*
-     String fileName = FileChooser.pickAFile();
-     Picture pictObj = new Picture(fileName);
-     pictObj.explore();
-     */
-
-     //opens a pictue using a path
-     //Picture apic = new Picture("C:\\Users\\khayes\\Favorites\\Documents\APCS- Java\chap03\Curriclum 2013\Picture Color labs\images\\beach.jpg");
-     
-     //relative path!!!! (ON TEST)
-     //                          dir/folder/file
-     //Picture apic = new Picture("images\\beach.jpg");
-     Picture ferris1 = new Picture("images/2000 ferris wheel2.jpg");
-     Picture moto = new Picture("images/redMotorcycle.jpg");
-     Picture motoOG = new Picture("images/redMotorcycle.jpg");
-     Picture moto2 = new Picture("images/redMotorcycle.jpg");
-     Picture moto3 = new Picture("images/redMotorcycle.jpg");
-     Picture moto4 = new Picture("images/redMotorcycle.jpg");
-     Picture moto5 = new Picture("images/redMotorcycle.jpg");
-     
-     //Picture ferris3 = new Picture("images/2000 ferris wheel2.jpg");
-
-     //displays the picture
-     //apic.explore();
-     //ferris1.explore();
-     //moto.explore();
-     
-     //makes an array of pixels
-     Pixel[] pixels;
-     
-     //gets pixels from picture and assigns to pixels array
-     pixels = ferris1.getPixels();
-     Pixel[] Mpixels;
-     Mpixels = moto.getPixels();
-     
-     Pixel[] Mpixels2;
-     Mpixels2 = moto2.getPixels();
-     
-     Pixel[] Mpixels3;
-     Mpixels3 = moto3.getPixels();
-     
-     Pixel[] Mpixels4;
-     Mpixels4 = moto4.getPixels();
-     
-     Pixel[] Mpixels5;
-     Mpixels5 = moto5.getPixels();
-     
-     
-     //how many pixels or how large array
-    System.out.println("This is a large array"+pixels.length  );
-    
-    /**/
-    /*
-        //access each index
-    System.out.println(pixels[17]);
-    //access each pixel
-    Pixel spot = ferris1.getPixel(100,100);
-    Pixel spot2 = ferris1.getPixel(433,283);
-    Pixel ferr17 = pixels[17];
-    
-    System.out.println(pixels[17].getColor());
-    System.out.println(spot);
-    
-    Color newColor = new Color(255, 99, 71);
-    
-    ferr17.setRed(240);
-    ferr17.setGreen(100);
-    ferr17.setBlue(200);
-    
-    spot.setColor(newColor);
-    spot2.setColor(newColor);
-    //ferris1.explore();
-    */
-    for (int i = 0; i < 50000; i++)
-    {
-        Pixel yuck = ferris1.getPixel((int)(Math.random()*1000), (int)(Math.random()*668));
-        yuck.setColor(Color.orange);
-    }
-    //ferris1.explore();
-    int Ored = 0, Ogreen = 0, Oblue = 0;
-    for (Pixel p : Mpixels){
-        Ored = p.getRed();
-        Ogreen = p.getGreen();
-        Oblue = p.getBlue();
-        p.setRed(Ored);
-        p.setGreen(Ogreen);
-        p.setBlue(Oblue);
-        
-    }
-    System.out.println(Ored);
-    /*
-
-   // loop to access indexes of array or collection
-
-    //for each loop spot  is a ?
-    for (Pixel spot : pixels)
-    System.out.println( spot );
-
-
-   
- /**/
- int red, green, blue;
- 
-
-
-
- /**
-  * Method to clear red from picture
-  * @param none
-  * @return none
-  */
- /*
-    for (Pixel pixelObj : pixels)
-        {
-            //set the red value of the current pixel to the new value
-           
-
-        }
-    ferris1.explore();
-    
-/**/
- /**
-  * Method to reduce red from picture by a factor of n
-  * @param none
-  * @return none
-  */
-
-/*
-int value;
-final double  FACTOR = .5;
-    for (Pixel pixelObj : pixels)
-    {
-
-        //get the redvalue
-        value = pixelObj.getRed();
-        //System.out.println(value);
-
-        //decrease the red value by 50%
-        
-        //set the red value of the current pixel to the new value
-        
-
-    }
-    // use new picture when changing or it will make changes to 
-    // pic you already changed
-    ferris1.explore();
-    ferris2.explore();
-
-  /**/ 
-    //write/save a picture as a file
-    /*
-    ferris1.write("images/ferris11.jpg");
-    motoOG.explore();
-    /**/
-    /*
-    int avg;
-    for(Pixel p : Mpixels){
-        red = p.getRed();
-        green = p.getGreen();
-        blue = p.getBlue();
-        avg = (red+green+blue)/3;
-        p.setRed(avg);
-        p.setBlue(avg);
-        p.setGreen(avg);
-        
-    }
-    moto.explore();
-    for(Pixel spot1: Mpixels2){
-     red = spot1.getRed();
-     red = (int)(red* 1.25);
-     spot1.setRed(red);
-     
-     }
-    moto2.explore();
-    for(Pixel p: Mpixels3){
-         red = p.getRed();
-         green = p.getGreen();
-         blue = p.getBlue();
-         p.setRed(255-red);
-         p.setGreen(255-green);
-         p.setBlue(255-blue);
-    }
-    moto3.explore();
-    for(Pixel p: Mpixels4){
-        red = p.getRed();
-        green = p.getGreen();
-        blue = p.getBlue();
-        p.setRed(red+35);
-        p.setGreen(green+35);
-        p.setBlue(blue+35);
-    }
-    moto4.explore();
-    for(Pixel p: Mpixels5){
-        red = p.getRed();
-        green = p.getGreen();
-        blue = p.getBlue();
-        if (red >= 105 && red <= 160 && green >= 140 && green <= 170 && blue >= 40 && blue <= 80){
-            blue = blue*7;
-        }
-        p.setRed(red);
-        p.setBlue(blue);
-        p.setGreen(green);
-    }
-    moto5.explore();
-    */
-   System.out.println("Canvas width: " + Canvas.getWidth());
-System.out.println("Canvas height: " + Canvas.getHeight());
-System.out.println("Vette width: " + vette.getWidth());
-System.out.println("Vette height: " + vette.getHeight());
+      
 
        copyToCanvasBetter(vette, Canvas, 0, 0);
        sideways();
        copyToCanvasBetter(vette, Canvas, 1300, 0);
        topways();
        copyToCanvasBetter(vette2, Canvas, 2600, 0);
-       nullify();
+       blend();
        copyToCanvasBetter(vette3, Canvas, 0, 900);
        recursion(vette4);
        copyToCanvasBetter(vette4, Canvas, 1300, 900);
@@ -288,21 +80,25 @@ System.out.println("Vette height: " + vette.getHeight());
           }
               
   }
-  public static void nullify()
+  public static void blend()
   {
-      Pixel Pixel = null;
+      Pixel Pixel1 = null, Pixel2 = null;
       for (int x = 0; x < vette3.getWidth(); x++)
           for ( int y = 0; y < vette3.getHeight(); y++)
           {
-              Pixel = vette3.getPixel(x,y);
-              int redp = Pixel.getRed();
-             int bluep = Pixel.getBlue();
-             int greenp = Pixel.getGreen();
-             Pixel.setRed(255-redp);
-             Pixel.setBlue(255-bluep);
-             Pixel.setGreen(255-greenp);
+             Pixel1 = vette3.getPixel(x,y);
+             int redp = Pixel1.getRed();
+             int bluep = Pixel1.getBlue();
+             int greenp = Pixel1.getGreen();
+             Pixel2 = C7.getPixel((int)(12.0/13 * x ), (int)(793.0/900 * y) );
+             int redc = Pixel2.getRed();
+             int bluec = Pixel2.getBlue();
+             int greenc = Pixel2.getGreen();
+             Pixel1.setRed((redp+redc)/2);
+             Pixel1.setBlue((bluep+bluec)/2);
+             Pixel1.setGreen((greenp+greenc)/2);
           }
-              
+          System.out.println(  (int)(12.0/13 * vette3.getWidth()) + ", " +(int)(793.0/900 * vette3.getHeight()) );  
   }
   public static void recursion(Picture pic)
     {
@@ -314,14 +110,13 @@ System.out.println("Vette height: " + vette.getHeight());
             for (int y = 0; y < pic.getHeight(); y += 2)
             {
                 pixel1 = pic.getPixel(x, y);
-                pixel2 = vette4.getPixel(x / 2, y / 2); // write INTO vette4
+                pixel2 = vette4.getPixel(x / 2, y / 2); 
                 pixel2.setColor(pixel1.getColor());
             }
         }
     
         if (pic.getWidth() / 2 > 50)
         {
-            // Crop the top-left region we just drew into vette4
             Picture crop = new Picture(pic.getWidth() / 2, pic.getHeight() / 2);
             for (int x = 0; x < crop.getWidth(); x++)
             {
